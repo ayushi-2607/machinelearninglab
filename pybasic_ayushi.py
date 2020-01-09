@@ -106,7 +106,7 @@ else:
 """
 
 # write your code after this line
-str=input('Enter a letter: ')
+str=input('Enter a letter: ').lower()
 if(str == 'a' or str == 'e' or str == 'i' or str == 'o' or str == 'u'):
   print(str,'is vowel')
 else:
@@ -116,6 +116,13 @@ else:
 
 # write your code after this line
 str = input("Enter a digit(ACSII) or character: ")
+str=ord(str)
+if str>=97 and str<=122:
+  print("lower case letter")
+if str>=48 and str<=58:
+  print("is a digit")
+if str>=65 and str<=90:
+  print("upper case letter")
 
 """### Repetition or loop
 - while loop
@@ -134,6 +141,15 @@ while( condition ):
 """
 
 # write your code after this line
+num=int(input("enter a number"))
+while num <= 10:
+    i = 1
+    while i <= 10:
+        product = num*i
+        print(num, " * ", i, " = ", product, "\n")
+        i = i + 1
+    num = num + 1
+    print("\n")
 
 
 
@@ -143,11 +159,23 @@ while( condition ):
 hint: use math.factorial(n) function to calculate factorial of number n.
 """
 
-
+import math
+num=int(input("enter any number"))
+sum=0
+while(num):
+  sum+=math.factorial(num)
+  num-=1
+print("the sum is",sum)
 
 """##### Task 6: Write a program in Python to enter the numbers till the user wants and at the end it should display the maximum number entered using while loop."""
 
-
+while(True):
+  num=int(input("enter a number"))
+  x=input("do you want to enter more numbers?(Y/N)").lower()
+  if(x=='y'):
+    continue
+  else:
+    break
 
 """### for loop
 
@@ -176,7 +204,25 @@ print(n,'! =',fact)
 
 """##### Task 7:Write a program in Python to print all numbers from 0 to 9 except 3 and 6 using a for loop."""
 
-
+for i in range(10):
+  if(i==3 or i==6):
+    continue;
+  else:
+    print("number :",i)
 
 """#### 2 Write a program in Python to get 10 numbers from user using a for loop. The program should print the count of positive numbers, negative numbers and zeroes entered by the user."""
 
+count1=0
+count2=0
+count3=0
+for i in range (10):
+  y=int(input("enter the number"))
+  if(y>0):
+    count1+=1
+  elif(y<0):
+    count2+=1
+  else:
+    count3+=1
+print("positive :{}".format(count1))
+print("negative :{}".format(count2))
+print("zero :{}".format(count3))
